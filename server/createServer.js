@@ -1,4 +1,4 @@
-// Instantiates the express server in the const variable 'app'.
+// Instantiates the web server
 
 const createServer = client => {
   const express = require('express');
@@ -21,11 +21,11 @@ const createServer = client => {
 
   app.post('/bet/:uid/:bet', db.updatePoints);
 
-  app.get('/api', (req, res) => {
+  app.get('/api', (_, res) => {
     res.json({ info: "Node.js, Express, and Postgres API" });
   });
   
-  app.get('/', (req, res) => {
+  app.get('/', (_, res) => {
     res.send(`${client.user.username} is live and functional.`)
   });
 

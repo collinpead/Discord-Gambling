@@ -18,6 +18,7 @@ module.exports = {
                 await interaction.reply(`To acquire points you must first use the /register command.`);
             }
 
+            // Notifies the user about how many points their account has
             await interaction.reply(`You currently have ` + user[0]['points'] + ` points.`);
 
             return gameState;

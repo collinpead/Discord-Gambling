@@ -1,22 +1,23 @@
-const { Model } = require("sequelize");
-
+// Builds a sorted 1D array of 52 cards 
 function buildSortedDeck(suits, ranks) {
-    deck = []
+    const sortedDeck = []
     for (let i = 0; i < suits.length; i++) {
         for (let j = 0; j < ranks.length; j++) {
-            deck.push(new Card(suits[i], ranks[j]));
+            sortedDeck.push(new Card(suits[i], ranks[j]));
         }
     }
-    return deck;
+    return sortedDeck;
 }
 
+// Return a random value from 0 to 51
 function randomCardIndex() {
-    deck_length = 52;
+    const deck_length = 52;
     return Math.floor(Math.random() * deck_length);
 }
 
+// Shuffles the contents of the deck
 function shuffleDeck(deck) {
-    // swaps is the number times two cards have their individual positions swapped.
+    // swaps is the number times two cards have their individual positions swapped
     const swaps = 100;
     for (let i = 0; i < swaps; i++) {
         pos1 = randomCardIndex();
@@ -34,11 +35,13 @@ class Card {
         this.rank = rank;
     }
 }
+
 class Deck {
     constructor() {
         this.cards = this.getShuffledDeck();
     }
 
+    // Builds a sorted deck, shuffles the deck, and returns the contents of the deck
     getShuffledDeck() {
         const suits = ['diamonds', 'hearts', 'clubs', 'spades'];
         const ranks = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];

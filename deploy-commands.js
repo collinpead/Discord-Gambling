@@ -1,8 +1,7 @@
+// Boilerplate command deployment source code from: 
+// https://discordjs.guide/creating-your-bot/command-handling.html#loading-command-files
+
 const { REST, Routes } = require('discord.js');
-
-// Load the .env file.
-require('dotenv').config();
-
 const fs = require('node:fs');
 const path = require('node:path');
 const { token, clientId, guildId } = require("./config.json");

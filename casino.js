@@ -1,11 +1,11 @@
-// casino.js is the main casino bot file
+// Boilerplate main file source code derived from:
+// https://discordjs.guide/creating-your-bot/main-file.html#running-your-application
 
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Events, GatewayIntentBits, Collection} = require("discord.js");
 const { token } = require("./config.json");
 const { createServer } = require('./server/createServer');
-
 
 // Instantiate the client.
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
@@ -67,9 +67,9 @@ client.on(Events.ClientReady, (c) => {
 		isDeal: false,
 		gameName: "",
 		playerName: "", 
-		playerId: 0, // Must be player specific
-		playerBet: 0, // Must be player specific
-		playerCards: [], // Must be player specific
+		playerId: 0, 
+		playerBet: 0,
+		playerCards: [],
 		dealerCards: [],
 		deck: [],
 		deckIndex: 0

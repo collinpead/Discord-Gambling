@@ -15,15 +15,18 @@ module.exports = {
             });
             const user = await response.json();
 
+            // Register the user, if the user does not exist in the database
             if (user.length == 0) {
                 await interaction.reply(`Registering new user ${interaction.user.username}.`);
-                await fetch('http://localhost:5433/users/' + uid + '/' + name, {
+                const response = await fetch('http://localhost:5433/users/' + uid + '/' + name, {
                     method: 'POST'
                 });
+                console.log(response.status)
             }
             else {
                 await interaction.reply(`User ${interaction.user.username} is already registered.`);
             }
+
             return gameState;
         },
 };

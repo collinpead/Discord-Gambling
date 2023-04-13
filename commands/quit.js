@@ -11,6 +11,7 @@ module.exports = {
                 await interaction.reply(`There is not a game ongoing to quit.`);
                 return gameState;
             }
+            // Return gameState to default when a user quits
             else {
                 await interaction.reply(`Quitting the current game.`);
                 gameState.isGame = false;

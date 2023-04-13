@@ -11,6 +11,7 @@ const pool = new Pool({
     connectionTimeoutMillis: 0
 });
 
+// Return the record of the user matching the specified user id
 const getUserById = (request, response) => {
     const uid  = request.params.uid;
     const query = `SELECT * FROM users WHERE uid = ${uid};`;
@@ -23,7 +24,8 @@ const getUserById = (request, response) => {
     });
 };
 
-const getUsersList = (request, response) => {
+// Return the records of all users in the database
+const getUsersList = (_, response) => {
     const query = `SELECT * FROM users;`;
     pool.query(query,
     (error, results) => {
@@ -34,6 +36,7 @@ const getUsersList = (request, response) => {
     });
 };
 
+// Create a new user with the specified user is and name
 const postNewUser = (request, response) => {
     const uid = request.params.uid;
     const name = request.params.name;
@@ -47,6 +50,7 @@ const postNewUser = (request, response) => {
     });
 };
 
+// Updates the user's points after a bet and again after a win or a draw
 const updatePoints = (request, response) => {
     const uid = request.params.uid;
     const bet = request.params.bet;
