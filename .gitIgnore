@@ -1,6 +1,6 @@
 # credentials
-/.env
-/config.json
+.env
+config.json
 
 # dependencies
 /node_modules
